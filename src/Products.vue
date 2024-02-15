@@ -60,7 +60,5 @@ export default {
 </template>
 
 <style scoped>
-.cheapest-product {
-    border: 2px solid green;
-}
+
 </style>
