@@ -1,6 +1,6 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import Register from './Register.vue'
+import Products from './Products.vue'
 
-createApp(Register).mount('#app')
+createApp(Products).mount('#app')
