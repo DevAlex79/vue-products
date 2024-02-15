@@ -2,13 +2,13 @@
 export default {
     data() {
         return {
-            firstName: '',
-            lastName: '',
-            birthdate: '',
-            username: '',
-            description: '',
-            password: '',
-            confirmPassword: ''
+            firstName: this.firstName,
+            lastName: this.lastName,
+            birthdate: this.birthdate,
+            username: this.username,
+            description: this.description,
+            password: this.password,
+            confirmPassword: this.confirmPassword,
         };
     },
     methods: {
@@ -57,6 +57,23 @@ export default {
                 <textarea id="description" v-model="description" rows="4"></textarea>
             </div>
             <div>
+                <label>Niveau en Vue.js:</label>
+                <select v-model="vueLevel">
+                    <option value="Débutant">Débutant</option>
+                    <option value="Intermédiaire">Intermédiaire</option>
+                    <option value="Confirmé">Confirmé</option>
+                </select>
+            </div>
+            <div class="like-vue">
+                <label>Aimez-vous Vue.js ?</label>
+                <div>
+                    <input type="radio" id="oui" value="oui" v-model="likeVue" name="likeVue">
+                    <label for="oui">Oui</label>
+                    <input type="radio" id="non" value="non" v-model="likeVue" name="likeVue">
+                    <label for="non">Non</label>
+                </div>
+            </div>
+            <div>
                 <label for="password">Mot de passe:</label>
                 <input type="password" id="password" v-model="password" required>
             </div>
@@ -84,12 +101,14 @@ export default {
 .register-form h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: black;
 }
 
 .register-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: black;
 }
 
 .register-form input[type="text"],
@@ -99,7 +118,7 @@ export default {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #007bff;
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -121,5 +140,19 @@ export default {
 
 .error-message {
     color: red;
+}
+
+.register-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.like-vue label {
+    display: inline-block;
+    margin-right: 10px;
 }
 </style>
