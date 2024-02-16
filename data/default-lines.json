@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Prestation 1",
+        "description": "Description de la prestation 1",
+        "unitPrice": 50
+    },
+    {
+        "name": "Prestation 2",
+        "description": "Description de la prestation 2",
+        "unitPrice": 80
+    },
+    {
+        "name": "Prestation 3",
+        "description": "Description de la prestation 3",
+        "unitPrice": 120
+    }
+]
+ 

@@ -3,6 +3,8 @@
 import BillLine from './BillLine.vue';
 import Total from './Total.vue';
 
+const DEFAULT_LINES_URL = 'data/default-lines.json'; // Chemin vers le fichier JSON local
+
 export default {
     name: 'Bill',
     components: {
@@ -14,7 +16,24 @@ export default {
             lines: []
         };
     },
+    created() {
+    this.fetchDefaultLines();
+    },
+    
     methods: {
+        fetchDefaultLines() {
+            fetch(DEFAULT_LINES_URL)
+                .then(response => response.json())
+                .then(data => {
+                    this.lines = data.map(line => ({
+                    ...line,
+                    quantity: 1
+                }));
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des prestations habituelles :', error);
+            });
+        },
         addLine() {
             this.lines.push({
                 name: '',
