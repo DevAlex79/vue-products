@@ -27,36 +27,34 @@ export default {
 
 <template>
     <div class="rating">
-    <!-- Utilisation du slot par défaut pour afficher les étoiles -->
-        <slot name="default">
-            <span v-for="n in plainStars" :key="`star-${n}`">&#9733;</span>
-            <span v-if="halfStars">&#9734;</span>
-            <span v-for="n in emptyStars" :key="`empty-star-${n}`">&#9734;</span>
+        <!-- Utilisation du slot par défaut pour afficher les étoiles -->
+        <slot name="plain">
+            <span class="plain-star">&#9733;</span>
+        </slot>
+        <slot name="half">
+            <span class="half-star">&#9734;</span>
+        </slot>
+        <slot name="empty">
+            <span class="empty-star">&#9734;</span>
         </slot>
     </div>
 </template>
+
 
 <style scoped>
 .rating {
   font-size: 24px; /* Taille de la police pour les étoiles */
 }
 
-.rating span {
-    display: inline-block;
+.plain-star {
+  color: #f1c40f; /* Couleur jaune pour les étoiles pleines */
 }
 
-.rating span::before {
-    content: '\2605'; /* Code Unicode pour une étoile pleine */
-    color: #f1c40f; /* Couleur jaune pour les étoiles pleines */
+.half-star {
+  color: #f1c40f; /* Couleur jaune pour les étoiles à moitié pleines */
 }
 
-.rating span:last-child::before {
-    content: '\2605'; /* Code Unicode pour une étoile à moitié pleine */
-    color: #f1c40f; /* Couleur jaune pour les étoiles à moitié pleines */
-}
-
-.rating span:empty::before {
-    content: '\2606'; /* Code Unicode pour une étoile vide */
-    color: #ccc; /* Couleur grise pour les étoiles vides */
+.empty-star {
+  color: #ccc; /* Couleur grise pour les étoiles vides */
 }
 </style>

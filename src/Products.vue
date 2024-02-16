@@ -54,11 +54,11 @@ export default {
         <h2>{{ products.length }} produits en vente</h2>
         <p>Prix du produit le moins cher: {{ cheaperProductPrice }}</p>
         <ul>
-            <Product v-for="(product, index) in products" :key="index" :product="product" :cheaperProductPrice="cheaperProductPrice" />
+            <Product v-for="(product, index) in products" :key="index" :product="product" :class="{ 'cheapest-product': isCheapestProduct(product) }" :cheaperProductPrice="cheaperProductPrice" />
         </ul>
     </div>
 </template>
 
 <style scoped>
-
+    
 </style>

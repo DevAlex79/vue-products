@@ -14,10 +14,10 @@ export default {
         },
         cheapestProductPrice: {
             type: Number,
-            default: null
+            required: true  //default: null
         }
     },
-    methods: {
+    computed: {
         isCheapestProduct() {
             return this.product.unit_price === this.cheapestProductPrice;
         }
@@ -32,13 +32,22 @@ export default {
         <p>Quantité: {{ product.quantity }}</p>
         <p>Description: {{ product.description }}</p>
         <Rating :value="product.rating">
-            <template v-slot:default>
-        <!-- Mon propre affichage d'étoiles -->
-            <span>⭐️⭐️⭐️</span>
+            <!-- Affichage des étoiles pleines -->
+            <template v-slot:plain>
+                <span class="plain-star">&#9733;</span>
+            </template>
+            <!-- Affichage des étoiles à moitié pleines -->
+            <template v-slot:half>
+                <span class="half-star">&#9733;</span>
+            </template>
+            <!-- Affichage des étoiles vides -->
+            <template v-slot:empty>
+                <span class="empty-star">&#9734;</span>
             </template>
         </Rating>
     </div>
 </template>
+
 
 <style scoped>
 .cheapest-product {
